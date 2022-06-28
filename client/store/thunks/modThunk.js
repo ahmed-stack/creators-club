@@ -12,15 +12,10 @@ export function getModsListAction(
   pageSize = 12,
   sortBy = "mostPopular"
 ) {
-  return async (dispatch, getState) => {
-    const { data } = getState().mod.modsList;
+  return async (dispatch) => {
     try {
       dispatch(setModsList({ ...initialModState.modsList, loading: true }));
       let modsList = await ModApi.getModsListApi(pageNumber, pageSize, sortBy);
-      modsList = {
-        ...modsList,
-        data: !!data ? [...data, ...modsList.data] : [...modsList.data],
-      };
       dispatch(setModsList({ ...initialModState.modsList, ...modsList }));
     } catch (e) {
       dispatch(setModsList({ ...initialModState.modsList, errors: e }));
