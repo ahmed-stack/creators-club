@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 // Local Imports
 import { wrapper } from "client/store/configureStore";
 
@@ -6,7 +8,7 @@ import "styles/global.css"
 
 // Component Imports
 import { Layout } from "client/components/layout";
-import Head from "next/head";
+
 
 function MyApp({ Component, pageProps }) {
   return (
